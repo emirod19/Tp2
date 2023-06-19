@@ -1,0 +1,21 @@
+class Escuela
+{
+    curso:string;
+    alumno:string;
+    constructor(curso:string, alumno:string){
+        this.curso=curso;
+        this.alumno=alumno;
+    }
+    imprimircurso()
+    {
+//asi no es, va la clase punto el atributo        console.log(`el alumno ${this.alumno} ha sido asignado al curso: ${this.curso}`);
+//el codigo anterior No va a funcionar hasta que cree un objeto       console.log(`el alumno ${Escuela.alumno} ha sido asignado al curso: ${Escuela.curso}`);
+        console.log(`el alumno ${this.alumno} ha sido asignado al curso: ${this.curso}`);
+    }
+}
+let alumno1:Escuela;
+alumno1=new Escuela('2B','Rodriguez');
+alumno1.imprimircurso();
+let alumno2:Escuela;
+alumno2=new Escuela('4C','Dragoni');
+alumno2.imprimircurso();
