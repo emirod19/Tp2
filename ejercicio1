@@ -1,0 +1,40 @@
+class Auto {
+  marca: string;
+  modelo: string;
+  power: number;
+  maxvel: number;
+
+  constructor(marca: string, modelo: string, power: number, maxvel: number) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.power = power;
+    this.maxvel = maxvel;
+  }
+
+  calcularTiempo(distancia: number): number {
+    let velocidad:number
+    velocidad = this.maxvel > 170 ? 170 : this.maxvel; // se asume una velocidad máxima óptima de 120 km/h
+    return distancia / velocidad;
+  }
+}
+
+let autoslocos: Auto[] = [
+    new Auto('citroen','3cv',32,35),
+    new Auto('renault','r12',50,140),
+    new Auto('chevrolet','chevy',100,155),
+    new Auto('fiat','f600',32,110),
+    new Auto('dodge','d1500',90,157)];
+for (const i of autoslocos) {
+  console.log(`${i.marca} ${i.modelo} (Potencia: ${i.power} hp, Vel. Max.: ${i.maxvel} km/h)`);
+}
+let distancia = 350;
+for (const auto of autoslocos) {
+  console.log(`${auto.marca} ${auto.modelo}: ${auto.calcularTiempo(distancia)} horas para recorrer ${distancia} kms`);
+}
+autoslocos.push(new Auto('mustang','f67',271,199));
+for (const i of autoslocos) {
+console.log(`${i.marca} ${i.modelo} (Potencia: ${i.power} hp, Vel. Max.: ${i.maxvel} km/h)`);
+}
+for (const auto of autoslocos) {
+  console.log(`${auto.marca} ${auto.modelo}: ${auto.calcularTiempo(distancia)} horas para recorrer ${distancia} kms`);
+}
