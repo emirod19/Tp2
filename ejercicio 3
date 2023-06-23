@@ -1,0 +1,48 @@
+class CuentaBancaria{
+    cbu:string;
+    nombre:string;
+    saldo:number;
+    constructor(cbu:string,nombre:string,saldo:number){
+        this.cbu=cbu;
+        this.nombre=nombre;
+        this.saldo=saldo;
+    }
+    imprimirAlertas()
+    {
+        console.log(`ud ${this.nombre} ha hecho una transaccion dudosa en la cuenta ${this.cbu}`);
+    }
+}
+let cuenta:CuentaBancaria;
+cuenta=new CuentaBancaria('Holainfo2','machete',700000);
+console.log("desea extraer o asignar dinero a la cuenta");
+let option=prompt("ingrese opcion: 1 para extraer 2 para asignar");
+let monto=Number(prompt("ingrese el monto con el que desea operar"));
+if(option ==='1')
+{
+    if(cuenta.saldo>monto)
+    {
+        if(monto>100000)
+        {
+        cuenta.imprimirAlertas();
+        }
+        console.log("la transaccion es posible")
+    }
+    else
+    {   
+        cuenta.imprimirAlertas();
+    }
+}
+else{
+    if(option==='2')
+{
+    //let montoAsignar=Number(prompt("ingrese monto que desea asignar"));
+    if(monto<500000)
+    {
+        console.log("la transaccion es posible")
+    }
+    else
+    {
+        cuenta.imprimirAlertas();
+    }
+}
+}  
